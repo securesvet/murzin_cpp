@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(HW-2-8
-        HW-1-1.cpp)
+        HW-2-8.cpp)
