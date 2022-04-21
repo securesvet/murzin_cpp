@@ -7,12 +7,17 @@
 
 using namespace std;
 
-class point {
+class Point {
 
 public:
 
-    long double x;
-    long double y;
+    double x;
+    double y;
+    double distance(Point point) {
+        double dx = x - point.x;
+        double dy = y - point.y;
+        return sqrt(dx*dx+dy*dy);
+    }
 
 };
 
@@ -23,7 +28,7 @@ int main() {
      * Третьей точкой и прямой
     */
 
-    point A, B, C, C_ab;
+    Point A, B, C, C_ab;
 
     cin >> A.x >> A.y >> B.x >> B.y >> C.x >> C.y;
 
@@ -72,11 +77,7 @@ else {
 
 }
 
-    //Находим расстояние между спроецированной точкой и заданной изначально третьей точкой
-
-    double distance_C_ab_C = sqrt(pow((C_ab.x-C.x), 2) + pow((C_ab.y-C.y),2));
-
-    cout << distance_C_ab_C << " " << C_ab.x << " " <<  C_ab.y;
+    cout << C_ab.distance(C) << " " << C_ab.x << " " <<  C_ab.y;
 
     return 0;
 
