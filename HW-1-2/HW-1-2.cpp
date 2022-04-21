@@ -2,7 +2,6 @@
 // Created by mursv on 4/21/2022.
 //
 #include<iostream>
-#include<cmath>
 
 int main() {
 
