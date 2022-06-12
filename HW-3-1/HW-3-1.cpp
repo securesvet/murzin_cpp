@@ -5,23 +5,19 @@
 
 int main() {
 
-    using namespace std;
+    // ввод 0 <= hours <= 59; 0 <= minutes <= 59;
 
-    // ввод 0 <= h <= 59; 0 <= m <= 59;
+    int hours, minutes;
 
-    int h, m;
+    std::cin >> hours >> minutes;
 
-    cin >> h >> m;
+    //hoursReversed, minutesReversed - реальное значение текущего времени
+    //hoursReversed - hours; minutesReversed - minutes
 
-    //x, y - реальное значение текущего времени
-    //x - h; y - m
+    int hoursReversed = abs(12 - hours) % 12; //% - чтобы не достигало значения 12
+    int minutesReversed = abs(60 - minutes) % 60; //% - чтобы не достигало значения 60, пример без %: 6 0, вывод: 6 60
 
-    int x, y;
-
-    x = abs(12 - h) % 12; //% - чтобы не достигало значения 12
-    y = abs(60 - m) % 60; //% - чтобы не достигало значения 60, пример без %: 6 0, вывод: 6 60
-
-    cout << x << " " << y;
+    std::cout << hoursReversed << " " << minutesReversed;
 
     return 0;
 }
