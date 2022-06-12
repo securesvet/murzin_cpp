@@ -14,7 +14,6 @@ int main() {
 
     std::string palindromMinimum = inputString;
 
-
     for (int i = 0; i < inputString.length() - 2; ++i) {
 
         if (inputString[i] == inputString[i + 1]) {
