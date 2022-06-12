@@ -42,8 +42,8 @@ std::string join(std::vector<std::string> inputVectorString, char separator) {
     for (int i = 0; i < inputVectorString.size() - 1; ++i) {
         vectorSeparated += inputVectorString.at(i) + separator;
     }
-
-    vectorSeparated += inputVectorString.at(inputVectorString.size() - 1); // Чтобы не было вывода наподобие: 1_2_3_ Последний элемент я добавляю вручную
+    // Чтобы не было вывода наподобие: 1_2_3_ Последний элемент я добавляю вручную
+    vectorSeparated += inputVectorString.at(inputVectorString.size() - 1);
     return vectorSeparated;
 }
 
