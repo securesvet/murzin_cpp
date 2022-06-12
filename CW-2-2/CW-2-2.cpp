@@ -7,21 +7,20 @@
 
 int main() {
 
-    std::string input_string;
-    int index_of_first_symbol, index_of_second_symbol;
+    std::string inputString;
+    int indexOfFirstSymbol, indexOfSecondSymbol;
 
-    std::cin >> input_string;
+    std::cin >> inputString;
 
-    index_of_first_symbol = input_string.find_first_of('f', 0);
+    indexOfFirstSymbol = inputString.find_first_of('f', 0);
 
-    if (index_of_first_symbol == -1) {
-        index_of_second_symbol = -2;
+    if (indexOfFirstSymbol == -1) {
+        indexOfSecondSymbol = -2;
     } else {
-        index_of_second_symbol = input_string.find_first_of('f', index_of_first_symbol + 1);
+        indexOfSecondSymbol = inputString.find_first_of('f', indexOfFirstSymbol + 1);
     }
 
-    std::cout << index_of_second_symbol;
+    std::cout << indexOfSecondSymbol;
 
     return 0;
-
 }
