@@ -5,43 +5,42 @@
 #include<cmath>
 
 int main() {
-    using namespace std;
-    double A, B, C;
+    double coefficientA, coefficientB, coefficientC;
     /*
      * Пользователь вводит коэффициенты перед x^2, x, 1 соответственно
      */
-    cin >> A >> B >> C;
+    std::cin >> coefficientA >> coefficientB >> coefficientC;
     /* Проверяем, квадратное ли уравнениe */
-    if (A!=0) {
+    if (coefficientA != 0) {
         /* Cчитаем дискриминант */
-        double D = (B * B - 4 * A * C);
+        double discriminant = (coefficientB * coefficientB - 4 * coefficientA * coefficientC);
         /*
          * Если дискриминант больше или равен нулю,
          * то вычисляем квадратный корень из неотрицательного числа
          */
-        if (D >= 0) {
+        if (discriminant >= 0) {
 
-            D = sqrt(D);
+            discriminant = sqrt(discriminant);
             /*
              * Вычисляем действительные корни
              */
-            if (D != 0) {
-                double x1 = (-B + D) / (2 * A);
-                double x2 = (-B - D) / (2 * A);
-                cout << x1 << " " << x2;
+            if (discriminant != 0) {
+                double rootX1 = (-coefficientB + discriminant) / (2 * coefficientA);
+                double rootX2 = (-coefficientB - discriminant) / (2 * coefficientA);
+                std::cout << rootX1 << " " << rootX2;
             } else {
-                double x1 = -B / (2 * A);
-                cout << x1;
+                double rootX1 = -coefficientB / (2 * coefficientA);
+                std::cout << rootX1;
             }
         }
     }
-    /*
-     * Если уравнение не является квадратным, а линейным
-     * то вычисляем действительный корень линейного уравнения
-     */
+        /*
+         * Если уравнение не является квадратным, а линейным
+         * то вычисляем действительный корень линейного уравнения
+         */
     else {
-        double x1 = - C / B;
-        cout << x1;
+        double rootX1 = -coefficientC / coefficientB;
+        std::cout << rootX1;
     }
     return 0;
 }
