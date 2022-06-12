@@ -4,36 +4,29 @@
 #include<iostream>
 #include<cmath>
 
-using namespace std;
 
-
-
-double Fibo(int N) {
+double Fibo(int indexNumber) {
 
     //PHI - золотое сечение
 
-    double PHI = (1+sqrt(5))/2;
-    double value;
+    double PHI = (1 + sqrt(5)) / 2;
 
     //Сама формула Бине:
 
-    value = ( pow ( PHI, N )  - ( pow( - PHI, -N ) ) ) / ( 2 * PHI - 1);
-    return value;
+    return (pow(PHI, indexNumber) - (pow(-PHI, -indexNumber))) / (2 * PHI - 1);
 }
 
 int main() {
 
-    using namespace std;
-
-    // Задача: вывести N-ое число Фибоначчи
+    // Задача: вывести indexNumber-ое число Фибоначчи
     // Предлагаю воспользоваться формулой Бине, которая выражает в явном виде
     // значение Fn как функцию от n
 
-    int N;
+    int indexNumber;
 
-    cin >> N;
+    std::cin >> indexNumber;
 
-    cout << Fibo(N);
+    std::cout << Fibo(indexNumber);
 
     return 0;
 
