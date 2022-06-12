@@ -4,7 +4,6 @@
 #include<iostream>
 #include<cmath>
 
-
 double Fibo(int indexNumber) {
 
     //PHI - золотое сечение
@@ -29,5 +28,4 @@ int main() {
     std::cout << Fibo(indexNumber);
 
     return 0;
-
 }
