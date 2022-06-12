@@ -5,18 +5,17 @@
 #include <iostream>
 #include <cmath>
 
-using namespace std;
-
 class Point {
 
 public:
 
     double x;
     double y;
+
     double distance(Point point) {
         double dx = x - point.x;
         double dy = y - point.y;
-        return sqrt(dx*dx+dy*dy);
+        return sqrt(dx * dx + dy * dy);
     }
 
 };
@@ -26,11 +25,11 @@ int main() {
      * Третью точку надо спроецировать на прямую
      * И найти координаты, а также расстояние между
      * Третьей точкой и прямой
-    */
+     */
 
-    Point A, B, C, C_ab;
+    Point pointA, pointB, pointC, pointCProjectedOnAB;
 
-    cin >> A.x >> A.y >> B.x >> B.y >> C.x >> C.y;
+    std::cin >> pointA.x >> pointA.y >> pointB.x >> pointB.y >> pointC.x >> pointC.y;
 
     /*
      * точки: A(A.x,B.y), B(B.x, B.y) - составляют прямую, обозначим её как прямая а
@@ -57,27 +56,29 @@ int main() {
 
     // Теперь в случае, если точки A и B не совпадают, считаем координаты спроецированной точки C_ab
 
-if ( ( A.x != B.x ) and ( A.y != B.y ) ) {
+    if ((pointA.x != pointB.x) and (pointA.y != pointB.y)) {
 
-        C_ab.x = ( (B.x - A.x) * (B.y - A.y) * (C.y - A.y) + C.x * pow((B.x - A.x), 2) + A.x * pow((B.y - A.y), 2)) /
-                 (pow((B.y - A.y), 2) + pow((B.x - A.x), 2) );
+        pointCProjectedOnAB.x = ((pointB.x - pointA.x) * (pointB.y - pointA.y) * (pointC.y - pointA.y) +
+                       pointC.x * pow((pointB.x - pointA.x), 2) + pointA.x * pow((pointB.y - pointA.y), 2)) /
+                                (pow((pointB.y - pointA.y), 2) + pow((pointB.x - pointA.x), 2));
 
-        C_ab.y = ( (B.x - A.x) * (B.y - A.y) * (C.x - A.x) + C.y * pow((B.y - A.y), 2) + A.y * pow((B.x - A.x), 2)) /
-                 (pow((B.y - A.y), 2) + pow((B.x - A.x), 2) );
+        pointCProjectedOnAB.y = ((pointB.x - pointA.x) * (pointB.y - pointA.y) * (pointC.x - pointA.x) +
+                       pointC.y * pow((pointB.y - pointA.y), 2) + pointA.y * pow((pointB.x - pointA.x), 2)) /
+                                (pow((pointB.y - pointA.y), 2) + pow((pointB.x - pointA.x), 2));
 
     }
 
-// В случае, если точки А и B совпали, то С спроецируется в эту же самую точку
-// Значит у C_ab будут те же координаты, что и у A
+        // В случае, если точки А и B совпали, то С спроецируется в эту же самую точку
+        // Значит у C_ab будут те же координаты, что и у A
 
-else {
+    else {
 
-    C_ab.x = A.x;
-    C_ab.y = A.y;
+        pointCProjectedOnAB.x = pointA.x;
+        pointCProjectedOnAB.y = pointA.y;
 
-}
+    }
 
-    cout << C_ab.distance(C) << " " << C_ab.x << " " <<  C_ab.y;
+    std::cout << pointCProjectedOnAB.distance(pointC) << " " << pointCProjectedOnAB.x << " " << pointCProjectedOnAB.y;
 
     return 0;
 
