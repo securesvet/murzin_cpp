@@ -6,18 +6,16 @@
 
 int main() {
 
-    int sizeOfString = 100;
-
-    char inputString[sizeOfString];
+    std::string inputString;
     bool inputStringIsPalindrom = true; //ставим флаг
 
     std::cin >> inputString;
 
     // цикл в котором сравниваются последние буквы строки и первые
     // цикл проходит до половины слова
-    for (int i = 0; i < strlen(inputString) / 2; ++i) {
+    for (int i = 0; i < inputString.length() / 2; ++i) {
         //если хотя бы одна буква не равна, то флаг = ложь и цикл обрывается
-        if (inputString[strlen(inputString) - 1 - i] != inputString[i]) {
+        if (inputString[inputString.length() - 1 - i] != inputString[i]) {
             inputStringIsPalindrom = false;
             break;
         }
