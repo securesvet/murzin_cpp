@@ -5,28 +5,28 @@
 #include <iostream>
 
 int main() {
-    int size_of_array = 10;
-    int array_to_sort[size_of_array];
+    int sizeOfArray = 10;
+    int arrayToSort[sizeOfArray];
 
     // Ввод массива
-    for (int i = 0; i < size_of_array; ++i) {
-        std::cin >> array_to_sort[i];
+    for (int i = 0; i < sizeOfArray; ++i) {
+        std::cin >> arrayToSort[i];
     }
 
-    int temp; // Переменная для обмена
+    int tempSwap; // Переменная для обмена
 
     // Сортировка Вставками
-    for (int i = 1; i < size_of_array; ++i) {
-        for (int j = i; j > 0 && array_to_sort[j] < array_to_sort[j-1]; --j) {
-                temp = array_to_sort[j-1];
-                array_to_sort[j-1] = array_to_sort[j];
-                array_to_sort[j] = temp;
+    for (int i = 1; i < sizeOfArray; ++i) {
+        for (int j = i; j > 0 && arrayToSort[j] < arrayToSort[j - 1]; --j) {
+            tempSwap = arrayToSort[j - 1];
+            arrayToSort[j - 1] = arrayToSort[j];
+            arrayToSort[j] = tempSwap;
         }
     }
 
     // Вывод отсортированного массива
-    for (int i = 0; i < size_of_array; ++i) {
-        std::cout << array_to_sort[i] << " ";
+    for (int i = 0; i < sizeOfArray; ++i) {
+        std::cout << arrayToSort[i] << " ";
     }
 
     return 0;
