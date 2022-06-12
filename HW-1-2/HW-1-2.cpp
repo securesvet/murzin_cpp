@@ -5,35 +5,33 @@
 
 int main() {
 
-    using namespace std;
-
-    double N, A, B, X, Y;
+    double initialCost, discountCost1, discountCost2, discount1, discount2;
 
     double price;
 
-    // N - исходная стоимость товара, A - если стоимость больше A, то скидка в X процентов,
-    // B - если стоимость больше B, то скидка в Y процентов
+    // initialCost - исходная стоимость товара, discountCost1 - если стоимость больше discountCost1, то скидка в discount1 процентов,
+    // discountCost2 - если стоимость больше discountCost2, то скидка в discount2 процентов
 
-    cin >> N >> A >> B >> X >> Y;
+    std::cin >> initialCost >> discountCost1 >> discountCost2 >> discount1 >> discount2;
 
-    //Если цена больше A, но меньше B, то скидка X
+    //Если цена больше discountCost1, но меньше discountCost2, то скидка discount1
 
-    if ( ( N > A ) and (N < B)  ) {
-        price = N * (1 - X / 100);
+    if ((initialCost > discountCost1) and (initialCost < discountCost2)) {
+        price = initialCost * (1 - discount1 / 100);
     }
 
-    //Если цена больше B, то скидка Y
+        //Если цена больше discountCost2, то скидка discount2
 
-    else if ( ( N > B)) {
-        price = N * (1 - Y/100);
+    else if ((initialCost > discountCost2)) {
+        price = initialCost * (1 - discount2 / 100);
     }
 
-    //Если цена меньше А
+        //Если цена меньше А
     else {
-        price = N;
+        price = initialCost;
     }
 
-    cout << price;
+    std::cout << price;
 
     return 0;
 }
