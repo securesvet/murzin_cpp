@@ -2,43 +2,47 @@
 // Created by mursv on 5/6/2022.
 //
 #include <iostream>
-#include <cstring>
 #include <string>
 
 int main() {
 
-    int sizeOfArray = 20000; // размерность массива
+    std::string inputString;
 
-    char input_string[sizeOfArray];
+    std::cin >> inputString;
 
-    std::cin >> input_string;
+    std::string palindromString = inputString;
 
-    std::string palindrom_string, minimum_palindrom, copy_input_string(input_string);
-
-    minimum_palindrom = palindrom_string = copy_input_string;
+    std::string palindromMinimum = inputString;
 
 
-    for (int i = 0; i < strlen(input_string) - 1; ++i) {
+    for (int i = 0; i < inputString.length() - 2; ++i) {
 
-        if (input_string[i] == input_string[i + 1]) {
+        if (inputString[i] == inputString[i + 1]) {
 
-            palindrom_string = copy_input_string.substr(i, 2);
+            palindromString = inputString.substr(i, 2);
 
         } else {
 
-            if (input_string[i] == input_string[i + 2]) {
+            if (inputString[i] == inputString[i + 2]) {
 
-                palindrom_string = copy_input_string.substr(i, 3);
+                palindromString = inputString.substr(i, 3);
 
             }
         }
 
-        if (palindrom_string.compare(minimum_palindrom) < 0) { // если palindrom_string меньше minimum_palindrom
-            minimum_palindrom = palindrom_string;
+        if (palindromString < palindromMinimum) { // если palindromString меньше palindromMinimum
+            palindromMinimum = palindromString;
         }
     }
 
-    std::cout << minimum_palindrom;
+    // Чтобы не было out of range при проверке равенства знаков
+    // Вручную проверяем последние два знака
+    if (inputString[inputString.length() - 2] == inputString[inputString.length() - 1] &&
+        inputString.substr(inputString.length() - 2, 2) < palindromMinimum) {
+        palindromMinimum = inputString.substr(inputString.length() - 2, 2);
+    }
+
+    std::cout << palindromMinimum;
 
     return 0;
 }
