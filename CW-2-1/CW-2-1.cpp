@@ -5,25 +5,21 @@
 
 int main() {
 
-    std::string input_string_first, input_string_second, input_string_third;
-    std::string *input_string_min;
+    std::string inputStringFirst, inputStringSecond, inputStringThird;
 
-    std::cin >> input_string_first >> input_string_second >> input_string_third;
+    std::cin >> inputStringFirst >> inputStringSecond >> inputStringThird;
 
-    input_string_min = &input_string_first;
+    std::string* inputStringMin;
 
-    if (input_string_first < input_string_second && input_string_first < input_string_third) {
-        input_string_min = &input_string_first; // указатель получает адрес лексикографически наименьшей строки
-    }
-    else if (input_string_second < input_string_first && input_string_second < input_string_third) {
-        input_string_min = &input_string_second;
-    }
-    else {
-        input_string_min = &input_string_third;
+    if (inputStringFirst < inputStringSecond && inputStringFirst < inputStringThird) {
+        inputStringMin = &inputStringFirst; // указатель получает адрес лексикографически наименьшей строки
+    } else if (inputStringSecond < inputStringFirst && inputStringSecond < inputStringThird) {
+        inputStringMin = &inputStringSecond;
+    } else {
+        inputStringMin = &inputStringThird;
     }
 
-    std::cout << *input_string_min; // prints the value
+    std::cout << *inputStringMin; // Выводит минимальную строку
 
     return 0;
-
 }
