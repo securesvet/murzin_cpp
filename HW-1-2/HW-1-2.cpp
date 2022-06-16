@@ -5,33 +5,28 @@
 
 int main() {
 
-    double initialCost, discountCost1, discountCost2, discount1, discount2;
+    double initialPrice, discountPriceFirst, discountPriceSecond, discountFirst, discountSecond, finalPrice;
 
-    double price;
+    // initialPrice - исходная стоимость товара, discountPriceFirst - если стоимость больше discountPriceFirst, то скидка в discountFirst процентов,
+    // discountPriceSecond - если стоимость больше discountPriceSecond, то скидка в discountSecond процентов
+    std::cin >> initialPrice >> discountPriceFirst >> discountPriceSecond >> discountFirst >> discountSecond;
 
-    // initialCost - исходная стоимость товара, discountCost1 - если стоимость больше discountCost1, то скидка в discount1 процентов,
-    // discountCost2 - если стоимость больше discountCost2, то скидка в discount2 процентов
-
-    std::cin >> initialCost >> discountCost1 >> discountCost2 >> discount1 >> discount2;
-
-    //Если цена больше discountCost1, но меньше discountCost2, то скидка discount1
-
-    if ((initialCost > discountCost1) and (initialCost < discountCost2)) {
-        price = initialCost * (1 - discount1 / 100);
+    //Если цена больше discountPriceFirst, но меньше discountPriceSecond, то скидка discountFirst
+    if ((initialPrice > discountPriceFirst) && (initialPrice < discountPriceSecond)) {
+        finalPrice = initialPrice * (1 - discountFirst / 100);
     }
 
-        //Если цена больше discountCost2, то скидка discount2
-
-    else if ((initialCost > discountCost2)) {
-        price = initialCost * (1 - discount2 / 100);
+    //Если цена больше discountPriceSecond, то скидка discountSecond
+    else if ((initialPrice > discountPriceSecond)) {
+        finalPrice = initialPrice * (1 - discountSecond / 100);
     }
 
-        //Если цена меньше А
+    //Если цена меньше А
     else {
-        price = initialCost;
+        finalPrice = initialPrice;
     }
 
-    std::cout << price;
+    std::cout << finalPrice;
 
     return 0;
 }
