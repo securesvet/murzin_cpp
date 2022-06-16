@@ -5,19 +5,15 @@
 #include<cmath>
 
 int main() {
-    double coefficientA, coefficientB, coefficientC;
-    /*
-     * Пользователь вводит коэффициенты перед x^2, x, 1 соответственно
-     */
-    std::cin >> coefficientA >> coefficientB >> coefficientC;
-    /* Проверяем, квадратное ли уравнениe */
-    if (coefficientA != 0) {
-        /* Cчитаем дискриминант */
-        double discriminant = (coefficientB * coefficientB - 4 * coefficientA * coefficientC);
-        /*
-         * Если дискриминант больше или равен нулю,
-         * то вычисляем квадратный корень из неотрицательного числа
-         */
+    double quadraticCoefficient, linearCoefficient, freeTermCoefficient;
+    // Пользователь вводит коэффициенты перед x^2, x^1, x^0 соответственно
+    std::cin >> quadraticCoefficient >> linearCoefficient >> freeTermCoefficient;
+    // Проверяем, квадратное ли уравнениe
+    if (quadraticCoefficient != 0) {
+        // Cчитаем дискриминант
+        double discriminant = (linearCoefficient * linearCoefficient - 4 * quadraticCoefficient * freeTermCoefficient);
+        // Если дискриминант больше или равен нулю,
+        // то вычисляем квадратный корень из неотрицательного числа
         if (discriminant >= 0) {
 
             discriminant = sqrt(discriminant);
@@ -25,22 +21,20 @@ int main() {
              * Вычисляем действительные корни
              */
             if (discriminant != 0) {
-                double rootX1 = (-coefficientB + discriminant) / (2 * coefficientA);
-                double rootX2 = (-coefficientB - discriminant) / (2 * coefficientA);
-                std::cout << rootX1 << " " << rootX2;
+                double firstRoot = (-linearCoefficient + discriminant) / (2 * quadraticCoefficient);
+                double secondRoot = (-linearCoefficient - discriminant) / (2 * quadraticCoefficient);
+                std::cout << firstRoot << " " << secondRoot;
             } else {
-                double rootX1 = -coefficientB / (2 * coefficientA);
-                std::cout << rootX1;
+                double root = -linearCoefficient / (2 * quadraticCoefficient);
+                std::cout << root;
             }
         }
     }
-        /*
-         * Если уравнение не является квадратным, а линейным
-         * то вычисляем действительный корень линейного уравнения
-         */
+    // Если уравнение является не квадратным, а линейным,
+    // то вычисляем действительный корень линейного уравнения
     else {
-        double rootX1 = -coefficientC / coefficientB;
-        std::cout << rootX1;
+        double root = -freeTermCoefficient / linearCoefficient;
+        std::cout << root;
     }
     return 0;
 }
