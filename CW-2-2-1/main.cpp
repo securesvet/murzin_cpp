@@ -11,8 +11,8 @@ int main() {
     List.addLast(7);
     List.removeFirst();
     List.removeLast();
-    List.getFirst(); // 2
-    List.getLast(); // 6
-    List.get(2); // 4
+    std::cout << List.getFirst() << '\n'; // 2
+    std::cout << List.getLast() << '\n'; // 6
+    std::cout << List.get(2); // 4
     return 0;
 }

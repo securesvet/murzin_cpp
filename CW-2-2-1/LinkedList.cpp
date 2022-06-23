@@ -1,5 +1,4 @@
 #include "LinkedList.h"
-#include <iostream>
 
 LinkedList::LinkedList() {
     // Голова = 0
@@ -8,23 +7,23 @@ LinkedList::LinkedList() {
     tail = NULL;
 };
 // Переход к предыдущему компоненту
-Component* LinkedList::previous(Component *comp) {
+Node* LinkedList::previous(Node *_node) {
     if (head != NULL && head->next != NULL) {
-        Component *pComponent = new Component();
-        pComponent = head;
-        while (pComponent->next != comp) {
-            pComponent = pComponent->next;
+        Node *tempNode = new Node();
+        tempNode = head;
+        while (tempNode->next != _node) {
+            tempNode = tempNode->next;
         }
-        return pComponent;
+        return tempNode;
     }
 }
 // Добавление первого элемента в односвязный список
 // Другими словами замена head (головы)
 void LinkedList::addFirst(int _data) {
     // Выделяем память для временной переменной temp (temporary)
-    Component *temp = new Component();
+    Node *temp = new Node();
     // _data - это дата, которая поступает на вход из интерфейса
-    // data - это дата в struct Component {}
+    // data - это дата в struct Node {}
     temp->data= _data;
     temp->next = NULL;
     if (head == NULL) {
@@ -35,16 +34,15 @@ void LinkedList::addFirst(int _data) {
        temp->next = head;
        head = temp;
     }
-    delete temp;
 }
 // Добавление последнего элемента в список
 // Аналогично с addFirst, но заменяет tail
 void LinkedList::addLast(int _data) {
     // Выделяем память для временной переменной temp (temporary)
-    Component *temp = new Component();
+    Node *temp = new Node();
     // _data - это дата, которая поступает на вход из интерфейса
-    // data - это дата в struct Component {}
-    temp->data= _data;
+    // data - это дата в struct Node {}
+    temp->data = _data;
     temp->next = NULL;
     if (head == NULL) {
         head = temp;
@@ -54,12 +52,11 @@ void LinkedList::addLast(int _data) {
         tail->next = temp;
         tail = temp;
     }
-    delete temp;
 }
 // Удаляет первый элемент (head), делает head->next началом.
 void LinkedList::removeFirst() {
     // _data - это дата, которая поступает на вход из интерфейса
-    // data - это дата в struct Component {}
+    // data - это дата в struct Node {}
     if (head != NULL) {
         head->data = NULL;
         head = head->next;
@@ -67,36 +64,39 @@ void LinkedList::removeFirst() {
 }
 // Удаляет последний элемент (tail)
 void LinkedList::removeLast() {
-    Component *prev = previous(tail);
+    Node *prev = previous(tail);
     prev->next = NULL;
     tail = prev;
-    delete prev;
 }
 // Возвращает значение элемента в начале списка
 int LinkedList::getFirst() {
-    return head->data;
+    if (head != NULL) {
+        return head->data;
+    }
 }
 // Возвращает значение элемента в конце списка
 int LinkedList::getLast() {
-    return tail->data;
+    if (tail != NULL) {
+        return tail->data;
+    }
 }
 // Возвращает i-ый элемент списка или -1, если элемента по указанному индексу не существует
-int LinkedList::get(int componentIndex) {
+int LinkedList::get(int nodeIndex) {
     int count = 0;
     bool isFound = true;
-    Component *componentLookingFor = new Component;
-    componentLookingFor = head;
+    Node *nodeLookingFor = new Node;
+    nodeLookingFor = head;
     if (head != NULL) {
-        while (count <= componentIndex) {
-            componentLookingFor = componentLookingFor->next;
-            if (componentLookingFor->next = NULL) {
+        while (count < nodeIndex) {
+            nodeLookingFor = nodeLookingFor->next;
+            if (nodeLookingFor->next == NULL) {
                 isFound = false;
                 break;
             }
             ++count;
         }
         if (isFound) {
-            return componentLookingFor->data;
+            return nodeLookingFor->data;
         }
         else {
             return -1;
