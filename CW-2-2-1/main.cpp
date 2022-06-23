@@ -15,5 +15,6 @@ int main() {
     std::cout << List.getFirst() << '\n'; // 2
     std::cout << List.getLast() << '\n'; // 6
     std::cout << List.get(2); // 4
+
     return 0;
 }
