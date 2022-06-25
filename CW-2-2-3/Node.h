@@ -14,9 +14,6 @@ public:
     std::vector<Node *> getNeighbours();
 
     void addNeighbours(Node *);
-
-    Node(std::vector<Node *>);
-
 };
 
 
