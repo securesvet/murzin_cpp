@@ -1,44 +1,43 @@
 #include "LinkedListQueue.h"
 
 LinkedListQueue::LinkedListQueue() {
-    // begin - начало очереди
-    begin = nullptr;
-    // end - конец очереди
-    end = nullptr;
 }
 
 // Добавляет элемент в конец очереди
-void LinkedListQueue::enqueue(int _data) {
+void LinkedListQueue::enqueue(Node *_data) {
     // _data - новое значение, встающее в очередь
-    // Выделим место для нового временного узла tempNode
-    Node *tempNode = new Node;
-    tempNode->data = _data;
-    tempNode->next = nullptr;
+    // Выделим место для временной очереди tempQueue
+    LinkedListQueue *tempQueue = new LinkedListQueue;
+    tempQueue->data = _data;
+    tempQueue->next = nullptr;
     if (begin == nullptr) {
         // Если вообще очереди нет, то элемент первый и последний
-        begin = tempNode;
-        end = tempNode;
+        begin = tempQueue;
+        end = tempQueue;
     } else {
         // Конечный ссылается на следующий элемент, который встал в очередь
-        end->next = tempNode;
-        // Тогда конечный элемент будет этот самый временный узел
-        end = tempNode;
+        end->next = tempQueue;
+        // Тогда конечный элемент будет этой самой временной очередью
+        end = tempQueue;
     }
 }
 
 // Удаляет элемент с начала очереди и возвращает его значение
-int LinkedListQueue::dequeue() {
-    // Выделим место для временного узла tempNode;
-    Node *tempNode = new Node;
+Node *LinkedListQueue::dequeue() {
+    // Выделим место для временной очереди tempQueue;
+    LinkedListQueue *tempQueue = new LinkedListQueue;
+    // Временная очередь для хранения удалённой переменной для возврата значения, выделяем память
+    LinkedListQueue *tempDeletedQueue = new LinkedListQueue;
+    tempDeletedQueue->data = begin->data;
     // В случае если очередь вообще существует
     if (begin != nullptr) {
-        tempNode = begin->next;
-        begin = tempNode;
+        tempQueue = begin->next;
+        begin = tempQueue;
     }
-    return tempNode->data;
+    return tempDeletedQueue->data;
 }
 
 // Возвращает элемент с начала очереди, но не удаляет его
 Node *LinkedListQueue::getFirst() {
-    return begin;
+    return begin->data;
 }

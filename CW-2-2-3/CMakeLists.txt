@@ -8,4 +8,6 @@ include_directories(.)
 add_executable(CW-2-2-3
         LinkedListQueue.cpp
         LinkedListQueue.h
+        Node.h
+        Node.cpp
         main.cpp)

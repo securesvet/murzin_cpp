@@ -2,13 +2,19 @@
 #include <iostream>
 
 int main() {
-    LinkedListQueue queue;
-    Node *nodeQueue = new Node;
-    nodeQueue = NULL;
-    queue.enqueue(1);
-    queue.enqueue(2);
-    queue.enqueue(3);
-    queue.dequeue();
-    nodeQueue = queue.getFirst();
-    std::cout << nodeQueue->data; // 2 (По итогу в очереди стоят 2 3)
+    LinkedListQueue *queue = new LinkedListQueue;
+    Node *firstNode = new Node;
+    Node *secondNode = new Node;
+    Node *thirdNode = new Node;
+    Node *fourthNode = new Node;
+    Node *fifthNode = new Node;
+    Node *_node = new Node;
+    queue->enqueue(firstNode);
+    queue->enqueue(secondNode);
+    queue->enqueue(thirdNode);
+    queue->enqueue(fourthNode);
+    queue->enqueue(fifthNode);
+    _node = queue->dequeue(); // _node = firstNode
+    _node = queue->getFirst(); // _node = secondNode
+    return 0;
 }
