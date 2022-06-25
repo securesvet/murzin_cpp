@@ -7,76 +7,79 @@ LinkedList::LinkedList() {
     tail = nullptr;
 };
 // Переход к предыдущему компоненту
-Node* LinkedList::previous(Node *_node) {
-    if (head != NULL && head->next != NULL) {
-        Node *tempNode = new Node();
-        tempNode = head;
-        while (tempNode->next != _node) {
-            tempNode = tempNode->next;
+LinkedList* LinkedList::Previous(LinkedList *_listElement) {
+    if (head != nullptr && head->next != nullptr) {
+        // Выделяем место для временного списка
+        LinkedList *tempList = new LinkedList();
+        tempList = head;
+        while (tempList->next != _listElement) {
+            tempList = tempList->next;
         }
-        return tempNode;
+        return tempList;
     }
 }
+
 // Добавление первого элемента в односвязный список
 // Другими словами замена head (головы)
 void LinkedList::addFirst(int _data) {
     // Выделяем память для временной переменной temp (temporary)
-    Node *temp = new Node();
+    LinkedList *tempList = new LinkedList();
     // _data - это дата, которая поступает на вход из интерфейса
     // data - это дата в struct Node {}
-    temp->data= _data;
-    temp->next = NULL;
-    if (head == NULL) {
-        head = temp;
-        tail = temp;
+    tempList->data= _data;
+    tempList->next = nullptr;
+    if (head == nullptr) {
+        head = tempList;
+        tail = tempList;
     }
     else {
-       temp->next = head;
-       head = temp;
+       tempList->next = head;
+       head = tempList;
     }
 }
 // Добавление последнего элемента в список
 // Аналогично с addFirst, но заменяет tail
 void LinkedList::addLast(int _data) {
     // Выделяем память для временной переменной temp (temporary)
-    Node *temp = new Node();
+    LinkedList *tempList = new LinkedList();
     // _data - это дата, которая поступает на вход из интерфейса
     // data - это дата в struct Node {}
-    temp->data = _data;
-    temp->next = NULL;
-    if (head == NULL) {
-        head = temp;
-        tail = temp;
+    tempList->data = _data;
+    tempList->next = nullptr;
+    if (head == nullptr) {
+        head = tempList;
+        tail = tempList;
     }
     else {
-        tail->next = temp;
-        tail = temp;
+        tail->next = tempList;
+        tail = tempList;
     }
 }
 // Удаляет первый элемент (head), делает head->next началом.
 void LinkedList::removeFirst() {
     // _data - это дата, которая поступает на вход из интерфейса
     // data - это дата в struct Node {}
-    if (head != NULL) {
+    if (head != nullptr) {
         head->data = NULL;
         head = head->next;
     }
 }
 // Удаляет последний элемент (tail)
 void LinkedList::removeLast() {
-    Node *prev = previous(tail);
-    prev->next = NULL;
-    tail = prev;
+    // Создаём элемент, указывающий на элемент перед хвостом
+    LinkedList *previousElement = Previous(tail);
+    previousElement->next = nullptr;
+    tail = previousElement;
 }
 // Возвращает значение элемента в начале списка
 int LinkedList::getFirst() {
-    if (head != NULL) {
+    if (head != nullptr) {
         return head->data;
     }
 }
 // Возвращает значение элемента в конце списка
 int LinkedList::getLast() {
-    if (tail != NULL) {
+    if (tail != nullptr) {
         return tail->data;
     }
 }
@@ -84,19 +87,19 @@ int LinkedList::getLast() {
 int LinkedList::get(int nodeIndex) {
     int count = 0;
     bool isFound = true;
-    Node *nodeLookingFor = new Node;
-    nodeLookingFor = head;
-    if (head != NULL) {
+    LinkedList *elementLookingFor = new LinkedList;
+    elementLookingFor = head;
+    if (head != nullptr) {
         while (count < nodeIndex) {
-            nodeLookingFor = nodeLookingFor->next;
-            if (nodeLookingFor->next == NULL) {
+            elementLookingFor = elementLookingFor->next;
+            if (elementLookingFor->next == nullptr) {
                 isFound = false;
                 break;
             }
             ++count;
         }
         if (isFound) {
-            return nodeLookingFor->data;
+            return elementLookingFor->data;
         }
         else {
             return -1;

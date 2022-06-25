@@ -1,21 +1,21 @@
 #ifndef MURZIN_CPP_LINKEDLIST_H
 #define MURZIN_CPP_LINKEDLIST_H
 
-struct Node {
-    int data;
-    Node *next;
-};
-
+#include <cstring>
 
 class LinkedList {
 private:
-    Node *head;
-    Node *tail;
+    LinkedList *head;
+    LinkedList *tail;
+    LinkedList *next;
 
-    Node *previous(Node *);
 
 public:
     LinkedList();
+
+    int data;
+
+    LinkedList *Previous(LinkedList *);
 
     void addFirst(int);
 
