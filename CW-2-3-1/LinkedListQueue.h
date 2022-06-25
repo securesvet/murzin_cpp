@@ -5,21 +5,21 @@
 #ifndef MURZIN_CPP_LINKEDLISTQUEUE_H
 #define MURZIN_CPP_LINKEDLISTQUEUE_H
 
-struct Node {
-    int data; // Дата узла
-    Node *next; // Указатель на следующий узел
-};
+#include "Node.h"
 
 class LinkedListQueue {
 private:
-    Node *begin; // Начало очереди
-    Node *end; // Конец очереди
+    LinkedListQueue *begin = nullptr; // Начало очереди
+    LinkedListQueue *end = nullptr; // Конец очереди
+    LinkedListQueue *next = nullptr; // Указатель на следующий элемент очереди
 public:
     LinkedListQueue();
 
-    void enqueue(int);
+    Node *data;
 
-    int dequeue();
+    void enqueue(Node *);
+
+    Node *dequeue();
 
     Node *getFirst();
 };
