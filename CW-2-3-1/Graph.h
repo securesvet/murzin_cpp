@@ -7,9 +7,9 @@ class Graph {
 public:
     Graph();
 
-    std::vector<Node *> nodes;
+    std::vector<Node *> node;
 
-    std::vector<Node *> getNodes();
+    std::vector<Node *> getNode();
 
     void addNode(Node *);
 

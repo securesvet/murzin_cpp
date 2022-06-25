@@ -1,19 +1,19 @@
 #include "Graph.h"
 
 Graph::Graph() {
-    this->nodes = std::vector<Node *>();
+    node = std::vector<Node *>();
 }
 
-std::vector<Node *> Graph::getNodes() {
-    return this->nodes;
+std::vector<Node *> Graph::getNode() {
+    return node;
 }
 
 void Graph::addNode(Node *_node) {
-    this->nodes.push_back(_node);
+    node.push_back(_node);
 }
 
 void Graph::resetIsUsed() {
-    for (int i = 0; i < this->getNodes().size(); ++i) {
-        this->getNodes()[i]->isUsed = false;
+    for (int i = 0; i < this->getNode().size(); ++i) {
+        getNode()[i]->isUsed = false;
     }
 }
