@@ -48,7 +48,11 @@ void Player::setHeight(float inputHeight) {
     height = inputHeight;
 }
 
+Rectangle Player::getRectangle() {
+    return Rectangle{posX - width / 2, posY - height / 2, 10, 100};
+}
+
 // Рисует игрока
 void Player::Draw() {
-    DrawRectangle(posX - width / 2, posY - height / 2, 10, 100, GREEN);
+    DrawRectangleRec(getRectangle(), GREEN);
 }

@@ -37,6 +37,9 @@ public:
 
     void setHeight(float);
 
+    // Возвращает в виде Rectangle (создано для системы столкновений)
+    Rectangle getRectangle();
+
     // Рисует игрока
     void Draw();
 };
