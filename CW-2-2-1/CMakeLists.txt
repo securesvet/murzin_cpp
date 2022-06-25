@@ -7,5 +7,5 @@ include_directories(.)
 
 add_executable(CW-2-2-1
         LinkedList.cpp
-        main.cpp
-        LinkedList.h)
+        LinkedList.h
+        main.cpp)

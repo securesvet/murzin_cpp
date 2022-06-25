@@ -2,9 +2,9 @@
 
 LinkedList::LinkedList() {
     // Голова = 0
-    head = NULL;
+    head = nullptr;
     // Хвост = 0
-    tail = NULL;
+    tail = nullptr;
 };
 // Переход к предыдущему компоненту
 Node* LinkedList::previous(Node *_node) {
