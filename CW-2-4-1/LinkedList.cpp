@@ -6,8 +6,9 @@ LinkedList::LinkedList() {
     // Хвост = 0
     tail = nullptr;
 };
+
 // Переход к предыдущему компоненту
-LinkedList* LinkedList::Previous(LinkedList *_listElement) {
+LinkedList *LinkedList::Previous(LinkedList *_listElement) {
     if (head != nullptr && head->next != nullptr) {
         // Выделяем место для временного списка
         LinkedList *tempList = new LinkedList();
@@ -26,17 +27,17 @@ void LinkedList::addFirst(int _data) {
     LinkedList *tempList = new LinkedList();
     // _data - это дата, которая поступает на вход из интерфейса
     // data - это дата в struct Node {}
-    tempList->data= _data;
+    tempList->data = _data;
     tempList->next = nullptr;
     if (head == nullptr) {
         head = tempList;
         tail = tempList;
-    }
-    else {
-       tempList->next = head;
-       head = tempList;
+    } else {
+        tempList->next = head;
+        head = tempList;
     }
 }
+
 // Добавление последнего элемента в список
 // Аналогично с addFirst, но заменяет tail
 void LinkedList::addLast(int _data) {
@@ -49,12 +50,12 @@ void LinkedList::addLast(int _data) {
     if (head == nullptr) {
         head = tempList;
         tail = tempList;
-    }
-    else {
+    } else {
         tail->next = tempList;
         tail = tempList;
     }
 }
+
 // Удаляет первый элемент (head), делает head->next началом.
 void LinkedList::removeFirst() {
     // _data - это дата, которая поступает на вход из интерфейса
@@ -64,6 +65,7 @@ void LinkedList::removeFirst() {
         head = head->next;
     }
 }
+
 // Удаляет последний элемент (tail)
 void LinkedList::removeLast() {
     // Создаём элемент, указывающий на элемент перед хвостом
@@ -71,18 +73,21 @@ void LinkedList::removeLast() {
     previousElement->next = nullptr;
     tail = previousElement;
 }
+
 // Возвращает значение элемента в начале списка
 int LinkedList::getFirst() {
     if (head != nullptr) {
         return head->data;
     }
 }
+
 // Возвращает значение элемента в конце списка
 int LinkedList::getLast() {
     if (tail != nullptr) {
         return tail->data;
     }
 }
+
 // Возвращает i-ый элемент списка или -1, если элемента по указанному индексу не существует
 int LinkedList::get(int nodeIndex) {
     int count = 0;
@@ -100,9 +105,49 @@ int LinkedList::get(int nodeIndex) {
         }
         if (isFound) {
             return elementLookingFor->data;
-        }
-        else {
+        } else {
             return -1;
         }
     }
+}
+
+// пустой ли список
+bool LinkedList::isEmpty() {
+    if (head == nullptr) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Возвращает значение head
+LinkedList *LinkedList::getHead() {
+
+}
+
+// Возвращает значение tail
+LinkedList *LinkedList::getTail() {
+    if (!isEmpty()) {
+        return tail;
+    }
+}
+
+// Возвращает next
+LinkedList *LinkedList::getNext() {
+    if (!isEmpty()) {
+        return next;
+    }
+}
+
+// Задаёт значение переменной head
+void LinkedList::setHead(LinkedList *_head) {
+    this->head = _head;
+}
+// Задаёт значение переменной tail
+void LinkedList::setTail(LinkedList *_tail) {
+    this->tail = _tail;
+}
+// Задаёт значение переменной next
+void LinkedList::setNext(LinkedList *_next) {
+    this->next = _next;
 }

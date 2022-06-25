@@ -5,10 +5,10 @@
 
 class LinkedList {
 private:
-    LinkedList *head;
     LinkedList *tail;
     LinkedList *next;
-
+    LinkedList *head;
+    LinkedList *previous;
 
 public:
     LinkedList();
@@ -25,11 +25,26 @@ public:
 
     void removeLast();
 
+    bool isEmpty();
+
+    LinkedList *getHead();
+
+    LinkedList *getTail();
+
+    LinkedList *getNext();
+
+    void setHead(LinkedList *);
+
+    void setTail(LinkedList *);
+
+    void setNext(LinkedList *);
+
     int getFirst();
 
     int getLast();
 
     int get(int);
+
 };
 
 
