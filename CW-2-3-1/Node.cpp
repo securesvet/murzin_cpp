@@ -1,6 +1,7 @@
 #include "Node.h"
 
 Node::Node() {
+    isUsed = false;
 }
 
 // Добавление соседей (соседа)
@@ -13,7 +14,3 @@ std::vector<Node *> Node::getNeighbours() {
     return neighbours;
 }
 
-// Назначение соседа
-Node::Node(std::vector<Node *> _neighbours) {
-    this->neighbours = _neighbours;
-}
