@@ -54,9 +54,7 @@ int main() {
         if (CheckCollisionCircleRec(Vector2{ball.getPosX(), ball.getPosY()}, ball.getRadius(),
                                     leftPlayer.getRectangle())) {
             if (ball.getSpeedX() < 0) {
-                ball.setSpeedX(
-                        ball.getSpeedX() * -1.1f); // Увеличение скорости со временем, шарик летит в другую сторону
-                ball.setSpeedY((ball.getPosY() - leftPlayer.getPosY()) / (leftPlayer.getHeight() / 2) * (-ball.getSpeedX()));
+                ball.setSpeedX(ball.getSpeedX() * -1.1f); // Увеличение скорости со временем, шарик летит в другую сторону
             }
         }
         // Игрока справа
@@ -64,7 +62,6 @@ int main() {
                                     rightPlayer.getRectangle())) {
             if (ball.getSpeedX() > 0) {
                 ball.setSpeedX(ball.getSpeedX() * -1);
-                ball.setSpeedY((ball.getPosY() - leftPlayer.getPosY()) / (leftPlayer.getHeight() / 2) * (-ball.getSpeedX()));
             }
         }
         // Перемещение игроков
