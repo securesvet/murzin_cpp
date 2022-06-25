@@ -1,35 +1,36 @@
 #include "LinkedListStack.h"
 
 LinkedListStack::LinkedListStack() {
-    top = nullptr;
 }
 
 // Добавляет элемент на вершину стека
-void LinkedListStack::push(int _data) {
+void LinkedListStack::push(Node *_data) {
     // _data - новая дата
-    // Выделим память для временного узла
-    Node *tempNode = new Node;
-    tempNode->data = _data;
-    tempNode->prev = nullptr;
+    // Выделим память для стека
+    LinkedListStack *tempStack = new LinkedListStack;
+    tempStack->data = _data;
     if (top == nullptr) {
-        top = tempNode;
+        top = tempStack;
     } else {
-        tempNode->prev = top;
-        top = tempNode;
+        tempStack->previous = top;
+        top = tempStack;
     }
 }
 
-// Удаляет элемент с вершины стека и возвращает его значение
+// Удаляет элемент с вершины стека
 void LinkedListStack::pop() {
-    // Выделяем память для временной переменной, в которой будет храниться указатель на предыдущий узел
-    Node *tempNode = new Node;
-    tempNode = top->prev;
-    top = tempNode;
+    // Выделяем память для временной переменной
+    LinkedListStack *tempStack = new LinkedListStack;
+    tempStack = top->previous;
+    top = tempStack;
 }
 
 // Возвращает элемент с вершины стека, но не удаляет его
-int LinkedListStack::getTop() {
+Node *LinkedListStack::getTop() {
     if (top != nullptr) {
         return top->data;
+    }
+    else {
+        return nullptr;
     }
 }

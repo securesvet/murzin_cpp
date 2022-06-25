@@ -1,22 +1,21 @@
 #ifndef MURZIN_CPP_LINKEDLISTSTACK_H
 #define MURZIN_CPP_LINKEDLISTSTACK_H
-
-struct Node {
-    int data; // данные узла
-    Node *prev; // указатель типа node на нижний элемент
-};
+#include "Node.h"
 
 class LinkedListStack {
 private:
-    Node *top;
+    LinkedListStack *top = nullptr;
+    LinkedListStack *previous = nullptr;
 public:
     LinkedListStack();
 
-    void push(int);
+    Node* data;
+
+    void push(Node *);
 
     void pop();
 
-    int getTop();
+    Node *getTop();
 };
 
 #endif //MURZIN_CPP_LINKEDLISTSTACK_H
