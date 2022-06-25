@@ -33,11 +33,17 @@ Node *LinkedListQueue::dequeue() {
     if (begin != nullptr) {
         tempQueue = begin->next;
         begin = tempQueue;
+        return tempDeletedQueue->data;
+    } else {
+        return nullptr;
     }
-    return tempDeletedQueue->data;
 }
 
 // Возвращает элемент с начала очереди, но не удаляет его
 Node *LinkedListQueue::getFirst() {
-    return begin->data;
+    if (begin != nullptr) {
+        return begin->data;
+    } else {
+        return nullptr;
+    }
 }
