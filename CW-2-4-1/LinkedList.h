@@ -1,13 +1,13 @@
 #ifndef MURZIN_CPP_LINKEDLIST_H
 #define MURZIN_CPP_LINKEDLIST_H
 
-#include <cstring>
+#include <stdexcept>
 
 class LinkedList {
 private:
+    LinkedList *head;
     LinkedList *tail;
     LinkedList *next;
-    LinkedList *head;
 
 public:
     LinkedList();
@@ -24,26 +24,15 @@ public:
 
     void removeLast();
 
-    bool isEmpty();
-
-    LinkedList *getHeadData();
-
-    LinkedList *getTail();
-
     LinkedList *getNext();
 
-    void setHead(LinkedList *);
-
-    void setTail(LinkedList *);
-
-    void setNext(LinkedList *);
+    LinkedList *getHead();
 
     int getFirst();
 
     int getLast();
 
     int get(int);
-
 };
 
 

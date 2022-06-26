@@ -17,6 +17,8 @@ LinkedList *LinkedList::Previous(LinkedList *_listElement) {
             tempList = tempList->next;
         }
         return tempList;
+    } else {
+        throw std::runtime_error("List is Empty");
     }
 }
 
@@ -29,12 +31,12 @@ void LinkedList::addFirst(int _data) {
     // data - это дата в struct Node {}
     tempList->data = _data;
     tempList->next = nullptr;
-    if (this->head == nullptr) {
-        this->head = tempList;
-        this->tail = tempList;
+    if (head == nullptr) {
+        head = tempList;
+        tail = tempList;
     } else {
-        tempList->next = this->head;
-        this->head = tempList;
+        tempList->next = head;
+        head = tempList;
     }
 }
 
@@ -63,6 +65,8 @@ void LinkedList::removeFirst() {
     if (head != nullptr) {
         head->data = NULL;
         head = head->next;
+    } else {
+        throw std::runtime_error("List is Empty");
     }
 }
 
@@ -78,6 +82,8 @@ void LinkedList::removeLast() {
 int LinkedList::getFirst() {
     if (head != nullptr) {
         return head->data;
+    } else {
+        throw std::runtime_error("List is Empty");
     }
 }
 
@@ -85,6 +91,8 @@ int LinkedList::getFirst() {
 int LinkedList::getLast() {
     if (tail != nullptr) {
         return tail->data;
+    } else {
+        throw std::runtime_error("List is Empty");
     }
 }
 
@@ -111,38 +119,16 @@ int LinkedList::get(int nodeIndex) {
     }
 }
 
-// пустой ли список
-bool LinkedList::isEmpty() {
-    if (head == nullptr) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-// Возвращает значение tail
-LinkedList *LinkedList::getTail() {
-    if (!isEmpty()) {
-        return tail;
-    }
-}
-
 // Возвращает next
 LinkedList *LinkedList::getNext() {
-    if (!isEmpty()) {
+    if (head != nullptr) {
         return next;
     }
+    else {
+        throw std::runtime_error("List is empty");
+    }
 }
-
-// Задаёт значение переменной head
-void LinkedList::setHead(LinkedList *_head) {
-    this->head = _head;
-}
-// Задаёт значение переменной tail
-void LinkedList::setTail(LinkedList *_tail) {
-    this->tail = _tail;
-}
-// Задаёт значение переменной next
-void LinkedList::setNext(LinkedList *_next) {
-    this->next = _next;
+// Возвращает head
+LinkedList *LinkedList::getHead() {
+    return head;
 }

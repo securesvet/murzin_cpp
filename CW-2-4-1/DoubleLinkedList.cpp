@@ -49,7 +49,7 @@ DoubleLinkedList *DoubleLinkedList::LinkedToDoubleLinked(LinkedList *_linkedList
     LinkedList *tempList = new LinkedList;
     tempList = _linkedList;
     // Если список не пустой
-    if (!tempList->isEmpty()) {
+    if (!tempList->getHead()) {
         doubleList->addFirst(tempList->getFirst());
         // Переходим к самому концу списка
         while (tempList->getNext() != nullptr) {
