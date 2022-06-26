@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include "LinkedList.h"
 
 LinkedList::LinkedList() {
@@ -16,6 +17,9 @@ LinkedList* LinkedList::Previous(LinkedList *_listElement) {
             tempList = tempList->next;
         }
         return tempList;
+    }
+    else {
+        throw std::runtime_error("List is Empty");
     }
 }
 
@@ -63,6 +67,9 @@ void LinkedList::removeFirst() {
         head->data = NULL;
         head = head->next;
     }
+    else {
+        throw std::runtime_error("List is Empty");
+    }
 }
 // Удаляет последний элемент (tail)
 void LinkedList::removeLast() {
@@ -76,11 +83,17 @@ int LinkedList::getFirst() {
     if (head != nullptr) {
         return head->data;
     }
+    else {
+        throw std::runtime_error("List is Empty");
+    }
 }
 // Возвращает значение элемента в конце списка
 int LinkedList::getLast() {
     if (tail != nullptr) {
         return tail->data;
+    }
+    else {
+        throw std::runtime_error("List is Empty");
     }
 }
 // Возвращает i-ый элемент списка или -1, если элемента по указанному индексу не существует
