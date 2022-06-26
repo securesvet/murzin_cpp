@@ -1,6 +1,8 @@
 #ifndef MURZIN_CPP_LINKEDLISTSTACK_H
 #define MURZIN_CPP_LINKEDLISTSTACK_H
+
 #include "Node.h"
+#include <stdexcept>
 
 class LinkedListStack {
 private:
@@ -9,7 +11,7 @@ private:
 public:
     LinkedListStack();
 
-    Node* data;
+    Node *data;
 
     void push(Node *);
 

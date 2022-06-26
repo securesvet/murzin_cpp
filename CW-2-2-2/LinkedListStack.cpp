@@ -21,16 +21,19 @@ void LinkedListStack::push(Node *_data) {
 void LinkedListStack::pop() {
     // Выделяем память для временной переменной
     LinkedListStack *tempStack = new LinkedListStack;
-    tempStack = top->previous;
-    top = tempStack;
+    if (top->previous != nullptr) {
+        tempStack = top->previous;
+        top = tempStack;
+    } else {
+        throw std::runtime_error("Stack is Empty");
+    }
 }
 
 // Возвращает элемент с вершины стека, но не удаляет его
 Node *LinkedListStack::getTop() {
     if (top != nullptr) {
         return top->data;
-    }
-    else {
-        return nullptr;
+    } else {
+        throw std::runtime_error("Stack is Empty");
     }
 }
