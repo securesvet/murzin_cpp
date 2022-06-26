@@ -3,7 +3,7 @@
 
 int main() {
     Fraction firstFraction(10, 200);
-    Fraction secondFraction(20, 126);
+    Fraction secondFraction(0, 126);
     Fraction thirdFraction;
     thirdFraction = firstFraction.sumOfFractions(secondFraction);
     std::cout << thirdFraction.getNumerator() << '/' << thirdFraction.getDenominator() << '\n';

@@ -10,6 +10,7 @@ Fraction::Fraction() {
 
 Fraction::Fraction(int _numerator, int _denominator) {
     // Создаём временные переменные для хранения значений числителя и знаменателя.
+    // _numerator, _denominator - числитель и знаменатель идущие на вход интерфейса
     // Если знаменатель не равен нулю
     if (_denominator != 0) {
         int tempNumerator = _numerator;
@@ -32,7 +33,7 @@ Fraction::Fraction(int _numerator, int _denominator) {
     }
         // Если знаменатель равен нулю
     else {
-        throw std::runtime_error("You cannot create a fraction with a denominator that is equal to 0!");
+        throw std::runtime_error("You cannot create a fraction with a denominator that is equal to 0");
     }
 }
 
@@ -71,24 +72,16 @@ Fraction Fraction::differenceOfFractions(Fraction _fraction) {
 Fraction Fraction::multiplicationOfFractions(Fraction _fraction) {
     // _fraction - это дробь, которая подаётся в интерфейсе функции на вход
     // Если знаменатель не равен нулю (умножение дробей)
-    if (_fraction.denominator != 0) {
-        return Fraction(numerator * _fraction.numerator,
-                        denominator * _fraction.denominator);
-    } else {
-        throw std::runtime_error("Denominator equals 0!");
-    }
+    return Fraction(numerator * _fraction.numerator,
+                    denominator * _fraction.denominator);
 }
 
 // Функция деления дробей (очень похожа с функцией умножения, потому что мы просто переворачиваем вторую дробь, на которую делим)
 Fraction Fraction::divisionOfFractions(Fraction _fraction) {
     // _fraction - это дробь, которая подаётся в интерфейсе функции на вход
     // Если числитель не равен нулю (так как это деление дробей)
-    if (_fraction.numerator != 0) {
-        return Fraction(numerator * _fraction.denominator,
-                        denominator * _fraction.numerator);
-    } else {
-        throw std::runtime_error("Denominator equals 0!");
-    }
+    return Fraction(numerator * _fraction.denominator,
+                    denominator * _fraction.numerator);
 }
 
 //Функция возвращает числитель
