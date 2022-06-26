@@ -5,12 +5,20 @@
 
 class DoubleLinkedList {
 private:
-    LinkedList *list;
-    LinkedList *previous;
+    DoubleLinkedList *head;
+    DoubleLinkedList *tail;
+    DoubleLinkedList *next;
+    DoubleLinkedList *previous;
 public:
     DoubleLinkedList();
 
-    DoubleLinkedList *LinkedToDoubleLinked(LinkedList *);
+    int data; // Дата, хранящаяся в списке
+
+    void addFirst(int);
+
+    void addLast(int);
+
+    DoubleLinkedList *LinkedToDoubleLinked(LinkedList *); // Метод для перевода односвязного списка в двусвязный
 };
 
 

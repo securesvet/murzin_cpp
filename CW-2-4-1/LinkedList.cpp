@@ -29,12 +29,12 @@ void LinkedList::addFirst(int _data) {
     // data - это дата в struct Node {}
     tempList->data = _data;
     tempList->next = nullptr;
-    if (head == nullptr) {
-        head = tempList;
-        tail = tempList;
+    if (this->head == nullptr) {
+        this->head = tempList;
+        this->tail = tempList;
     } else {
-        tempList->next = head;
-        head = tempList;
+        tempList->next = this->head;
+        this->head = tempList;
     }
 }
 
@@ -118,11 +118,6 @@ bool LinkedList::isEmpty() {
     } else {
         return false;
     }
-}
-
-// Возвращает значение head
-LinkedList *LinkedList::getHead() {
-
 }
 
 // Возвращает значение tail

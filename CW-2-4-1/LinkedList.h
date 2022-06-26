@@ -8,7 +8,6 @@ private:
     LinkedList *tail;
     LinkedList *next;
     LinkedList *head;
-    LinkedList *previous;
 
 public:
     LinkedList();
@@ -27,7 +26,7 @@ public:
 
     bool isEmpty();
 
-    LinkedList *getHead();
+    LinkedList *getHeadData();
 
     LinkedList *getTail();
 

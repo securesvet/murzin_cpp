@@ -8,4 +8,6 @@ include_directories(../CW-2-4-1)
 add_executable(CW-2-4-1
         LinkedList.cpp
         LinkedList.h
+        DoubleLinkedList.cpp
+        DoubleLinkedList.h
         main.cpp)
