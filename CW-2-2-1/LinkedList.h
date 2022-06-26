@@ -1,14 +1,13 @@
 #ifndef MURZIN_CPP_LINKEDLIST_H
 #define MURZIN_CPP_LINKEDLIST_H
 
-#include <cstring>
+#include <stdexcept>
 
 class LinkedList {
 private:
     LinkedList *head;
     LinkedList *tail;
     LinkedList *next;
-
 
 public:
     LinkedList();
