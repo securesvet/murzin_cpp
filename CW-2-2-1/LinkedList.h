@@ -2,19 +2,18 @@
 #define MURZIN_CPP_LINKEDLIST_H
 
 #include <stdexcept>
+#include <cstring>
 
 class LinkedList {
 private:
     LinkedList *head;
     LinkedList *tail;
     LinkedList *next;
+    LinkedList *Previous(LinkedList *);
+    int data;
 
 public:
     LinkedList();
-
-    int data;
-
-    LinkedList *Previous(LinkedList *);
 
     void addFirst(int);
 

@@ -10,9 +10,8 @@ LinkedList::LinkedList() {
 // Переход к предыдущему компоненту
 LinkedList *LinkedList::Previous(LinkedList *_listElement) {
     if (head != nullptr && head->next != nullptr) {
-        // Выделяем место для временного списка
-        LinkedList *tempList = new LinkedList();
-        tempList = head;
+        // Присваиваем временному односвязному списку голову
+        LinkedList *tempList = head;
         while (tempList->next != _listElement) {
             tempList = tempList->next;
         }
@@ -28,7 +27,6 @@ void LinkedList::addFirst(int _data) {
     // Выделяем память для временной переменной temp (temporary)
     LinkedList *tempList = new LinkedList();
     // _data - это дата, которая поступает на вход из интерфейса
-    // data - это дата в struct Node {}
     tempList->data = _data;
     tempList->next = nullptr;
     if (head == nullptr) {
@@ -46,7 +44,6 @@ void LinkedList::addLast(int _data) {
     // Выделяем память для временной переменной temp (temporary)
     LinkedList *tempList = new LinkedList();
     // _data - это дата, которая поступает на вход из интерфейса
-    // data - это дата в struct Node {}
     tempList->data = _data;
     tempList->next = nullptr;
     if (head == nullptr) {
@@ -61,9 +58,7 @@ void LinkedList::addLast(int _data) {
 // Удаляет первый элемент (head), делает head->next началом.
 void LinkedList::removeFirst() {
     // _data - это дата, которая поступает на вход из интерфейса
-    // data - это дата в struct Node {}
     if (head != nullptr) {
-        head->data = NULL;
         head = head->next;
     } else {
         throw std::runtime_error("List is Empty");
@@ -111,10 +106,10 @@ int LinkedList::get(int nodeIndex) {
             }
             ++count;
         }
-        if (isFound) {
-            return elementLookingFor->data;
-        } else {
-            return -1;
-        }
+    }
+    if (isFound) {
+        return elementLookingFor->data;
+    } else {
+        return -1;
     }
 }
