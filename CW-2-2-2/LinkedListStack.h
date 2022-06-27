@@ -6,12 +6,11 @@
 
 class LinkedListStack {
 private:
-    LinkedListStack *top = nullptr;
-    LinkedListStack *previous = nullptr;
+    LinkedListStack *top;
+    LinkedListStack *previous;
+    Node *data;
 public:
     LinkedListStack();
-
-    Node *data;
 
     void push(Node *);
 
