@@ -9,13 +9,12 @@
 
 class LinkedListQueue {
 private:
-    LinkedListQueue *begin = nullptr; // Начало очереди
-    LinkedListQueue *end = nullptr; // Конец очереди
-    LinkedListQueue *next = nullptr; // Указатель на следующий элемент очереди
+    LinkedListQueue *begin; // Начало очереди
+    LinkedListQueue *end; // Конец очереди
+    LinkedListQueue *next; // Указатель на следующий элемент очереди
+    Node *data; // Дата каждого элемента (узел)
 public:
     LinkedListQueue();
-
-    Node *data;
 
     void enqueue(Node *);
 

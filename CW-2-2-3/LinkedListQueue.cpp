@@ -1,6 +1,11 @@
 #include "LinkedListQueue.h"
 
 LinkedListQueue::LinkedListQueue() {
+    // Присваиваем приватным значениям начальные значения как nullptr'ы
+    begin = nullptr;
+    end = nullptr;
+    next = nullptr;
+    data = nullptr;
 }
 
 // Добавляет элемент в конец очереди
