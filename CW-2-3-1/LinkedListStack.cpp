@@ -1,6 +1,10 @@
 #include "LinkedListStack.h"
 
 LinkedListStack::LinkedListStack() {
+    // Присвоим приватным переменным начальные значения nullptr'ы
+    top = nullptr;
+    previous = nullptr;
+    data = nullptr;
 }
 
 // Добавляет элемент на вершину стека

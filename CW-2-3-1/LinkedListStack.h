@@ -5,12 +5,11 @@
 
 class LinkedListStack {
 private:
-    LinkedListStack *top = nullptr;
-    LinkedListStack *previous = nullptr;
+    LinkedListStack *top; // Самый верхний элемент
+    LinkedListStack *previous; // Ниже стоящий элемент
+    Node *data; // Дата элемента стека (в нашем случае узел)
 public:
     LinkedListStack();
-
-    Node *data;
 
     void push(Node *);
 
