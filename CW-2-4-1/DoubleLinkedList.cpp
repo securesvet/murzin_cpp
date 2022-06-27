@@ -6,6 +6,7 @@ DoubleLinkedList::DoubleLinkedList() {
     tail = nullptr;
     next = nullptr;
     previous = nullptr;
+    data = NULL; // так как дата типа int
 }
 //Добавление первого элемента в двусвязный список
 void DoubleLinkedList::addFirst(int _data) {
@@ -13,13 +14,12 @@ void DoubleLinkedList::addFirst(int _data) {
     DoubleLinkedList *tempDouble = new DoubleLinkedList();
     // _data - это дата, которая поступает на вход из интерфейса
     tempDouble->data = _data;
-    tempDouble->next = nullptr;
-    tempDouble->previous = nullptr;
     if (head == nullptr) {
         head = tempDouble;
         tail = tempDouble;
     } else {
         tempDouble->next = head;
+        head->previous = head;
         head = tempDouble;
     }
 }
@@ -29,8 +29,6 @@ void DoubleLinkedList::addLast(int _data) {
     DoubleLinkedList *tempDouble = new DoubleLinkedList();
     // _data - это дата, которая поступает на вход из интерфейса
     tempDouble->data = _data;
-    tempDouble->next = nullptr;
-    tempDouble->previous = nullptr;
     // Если списка ещё не существует
     if (head == nullptr) {
         head = tempDouble;

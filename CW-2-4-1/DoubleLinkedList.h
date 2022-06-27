@@ -9,10 +9,9 @@ private:
     DoubleLinkedList *tail;
     DoubleLinkedList *next;
     DoubleLinkedList *previous;
+    int data; // Дата, хранящаяся в списке
 public:
     DoubleLinkedList();
-
-    int data; // Дата, хранящаяся в списке
 
     void addFirst(int);
 

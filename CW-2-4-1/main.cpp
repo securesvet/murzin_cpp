@@ -7,7 +7,8 @@ int main() {
     List->addLast(2);
     List->addLast(3);
 
-    DoubleLinkedList *doubleList = new DoubleLinkedList;
-    doubleList = doubleList->LinkedToDoubleLinked(List);
+    DoubleLinkedList *firstDoubleList = new DoubleLinkedList;
+    DoubleLinkedList *secondDoubleList = new DoubleLinkedList;
+    secondDoubleList = firstDoubleList->LinkedToDoubleLinked(List);
     return 0;
 }
